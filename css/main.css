@@ -17,6 +17,11 @@ picture.pic {
     height: 100vh;
 }
 
+.menu a ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 
 @media (max-width: 800px) {
     .navigation, .navigation-bar {
