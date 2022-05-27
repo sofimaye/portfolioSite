@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>portfolio</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="../src/css/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 </head>
 
-
 <body>
-    <div id="root"></div>
+    <div id="root">
+    </div>
     <div class="row main">
         <input id="menu-toggle" type="checkbox" />
         <label class="menu-btn" for="menu-toggle">
@@ -29,108 +29,32 @@
         <div class="col menu"><a href="portfolio.html"><ul><li><i class="fas fa-paint-brush"></i>portfolio</li></ul></a></div>
         <div class="col menu"><a href="contacts.html"><ul><li><i class="fas fa-address-card"></i>contacts</li></ul></a></div>
     </div>
-
-
     <div class="row content">
-            <div class="grid">
-                <div class="grid-item">
-                    <a data-fslightbox="gallery" href="images/IMGnewsize.jpg">
-                        <img src="images/IMGnewsize.jpg">
-                    </a>
-                </div>
+            <div id="grid" class="grid">
+                    <script>
+                        const images = ["images/IMGnewsize.jpg", "images/IMGnewsize16.jpg",
+                            "images/IMGnewsize2.jpg", "images/IMGnewsize3.jpg", "images/IMGnewsize4.jpg",
+                            "images/IMGnewsize5.jpg", "images/IMGnewsize6.jpg" , "images/IMGnewsize7.jpg",
+                            "images/IMGnewsize8.jpg"]
+                        let grid = document.getElementById("grid")
+                        for (let image of images){
+                            let gridItem = document.createElement("div");
+                            gridItem.className = "grid-item";
 
-                <div class="grid-item">
-                    <a data-fslightbox="gallery" href="images/IMGnewsize16.jpg">
-                        <img src="images/IMGnewsize16.jpg">
-                    </a>
-                </div>
+                            let aLink = document.createElement('a');
+                            aLink.setAttribute('data-fslightbox', 'gallery');
+                            aLink.href = image;
 
-                <div class="grid-item">
-                    <a data-fslightbox="gallery" href="images/IMGnewsize2.jpg">
-                        <img src="images/IMGnewsize2.jpg">
-                    </a>
-                </div>
+                            let img = document.createElement('img');
+                            img.src = image;
 
-                <div class="grid-item">
-                    <a data-fslightbox="gallery" href="images/IMGnewsize3.jpg">
-                        <img src="images/IMGnewsize3.jpg">
-                    </a>
-                </div>
-
-                <div class="grid-item">
-                    <a data-fslightbox="gallery" href="images/IMGnewsize4.jpg" class="grid-item">
-                        <img src="images/IMGnewsize4.jpg">
-                    </a>
-                </div>
-
-                <div class="grid-item">
-                    <a data-fslightbox="gallery" href="images/IMGnewsize5.jpg" class="grid-item">
-                        <img src="images/IMGnewsize5.jpg">
-                    </a>
-                </div>
-
-                <div class="grid-item">
-                    <a data-fslightbox="gallery" href="images/IMGnewsize6.jpg" class="grid-item">
-                        <img src="images/IMGnewsize6.jpg">
-                    </a>
-                </div>
-
-                <div class="grid-item">
-                    <a data-fslightbox="gallery" href="images/IMGnewsize7.jpg" class="grid-item">
-                        <img src="images/IMGnewsize7.jpg">
-                    </a>
-                </div>
-
-                <div class="grid-item">
-                    <a data-fslightbox="gallery" href="images/IMGnewsize8.jpg" class="grid-item">
-                        <img src="images/IMGnewsize8.jpg">
-                    </a>
-                </div>
-
-                <div class="grid-item">
-                    <a data-fslightbox="gallery" href="images/IMGnewsize9.jpg" class="grid-item">
-                        <img src="images/IMGnewsize9.jpg">
-                    </a>
-                </div>
-
-                <div class="grid-item">
-                    <a data-fslightbox="gallery" href="images/IMGnewsize10.jpg" class="grid-item">
-                        <img src="images/IMGnewsize10.jpg">
-                    </a>
-                </div>
-
-                <div class="grid-item">
-                    <a data-fslightbox="gallery" href="images/IMGnewsize11.jpg" class="grid-item">
-                        <img src="images/IMGnewsize11.jpg">
-                    </a>
-                </div>
-
-                <div class="grid-item">
-                    <a data-fslightbox="gallery" href="images/IMGnewsize12.jpg" class="grid-item">
-                        <img src="images/IMGnewsize12.jpg">
-                    </a>
-                </div>
-
-                <div class="grid-item">
-                    <a data-fslightbox="gallery" href="images/IMGnewsize13.jpg" class="grid-item">
-                        <img src="images/IMGnewsize13.jpg">
-                    </a>
-                </div>
-
-                <div class="grid-item">
-                    <a data-fslightbox="gallery" href="images/IMGnewsize14.jpg" class="grid-item">
-                        <img src="images/IMGnewsize14.jpg">
-                    </a>
-                </div>
-
-                <div class="grid-item">
-                    <a data-fslightbox="gallery" href="images/IMGnewsize15.jpg" class="grid-item">
-                        <img src="images/IMGnewsize15.jpg">
-                    </a>
-                </div>
+                            aLink.appendChild(img)
+                            gridItem.appendChild(aLink)
+                            grid.appendChild(gridItem)
+                        }
+                    </script>
+                <script src="js/fslightbox.js"></script>
             </div>
     </div>
-    <script src="js/fslightbox.js"></script>
 </body>
-
 </html>
