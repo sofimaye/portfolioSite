@@ -20,7 +20,6 @@ export class Navbar extends React.Component {
                             className="fas fa-address-card"></i>contacts</Link></li>
                     </ul>
                 </div>
-
                 <div className="row navigation-bar">
                     <div className="col menu">
                         <Link to="/">

@@ -1,6 +1,5 @@
 //3-rd page
 import React from "react";
-
 export class Contacts extends React.Component {
     render() {
         return (
