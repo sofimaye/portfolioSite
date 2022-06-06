@@ -13,11 +13,14 @@ export class Portfolio extends Component {
         return(
             <div id="grid" className="grid">
                 <Gallery>
-                {images.map((image, i) => (<div id="grid-item" className="grid-item">
+                {images.map((image, i) => (
+                    <div id="grid-item" key={i} className="grid-item">
                     <Item width="724" height="1024" original={image} thumbnail={image} key={i}>
                     {({ ref, open }) => (
                         <img alt="image" ref={ref} onClick={open} src={image} />
-                    )}</Item></div>))}
+                    )}</Item>
+                    </div>)
+                )}
                 </Gallery>
             </div>
         )
