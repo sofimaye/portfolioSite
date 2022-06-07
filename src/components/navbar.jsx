@@ -1,9 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
-// to do fslightbox for React
-// navbar for all pages
-
 class MainNavBar extends React.Component {
     render() {
         return (
@@ -57,17 +54,17 @@ class MobileNavBar extends React.Component {
 export class Navbar extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {width: window.innerWidth};
+        this.state = {mobileBar: window.innerWidth >= 801};
     }
 
     render = () => (
         <div>
-            {(this.state.width < 801) ? <MobileNavBar/> : <MainNavBar/>}
+            {(this.state.mobileBar) ? <MobileNavBar/> : <MainNavBar/>}
         </div>
     )
 
     updateDimensions = () => {
-        this.setState({width: window.innerWidth});
+        this.setState({mobileBar: window.innerWidth >= 801})
     };
 
     componentDidMount() {
@@ -77,5 +74,4 @@ export class Navbar extends React.Component {
     componentWillUnmount() {
         window.removeEventListener('resize', this.updateDimensions);
     }
-
 }
