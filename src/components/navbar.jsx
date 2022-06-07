@@ -54,7 +54,7 @@ class MobileNavBar extends React.Component {
 export class Navbar extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {mobileBar: window.innerWidth >= 801};
+        this.state = {mobileBar: window.innerWidth < 801};
     }
 
     render = () => (
@@ -64,7 +64,7 @@ export class Navbar extends React.Component {
     )
 
     updateDimensions = () => {
-        this.setState({mobileBar: window.innerWidth >= 801})
+        this.setState({mobileBar: window.innerWidth < 801})
     };
 
     componentDidMount() {
