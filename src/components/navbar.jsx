@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
+// to do state for the button component (mobileNavBar)
 class MainNavBar extends React.Component {
     render() {
         return (
@@ -31,21 +32,46 @@ class MainNavBar extends React.Component {
     }
 }
 
-class MobileNavBar extends React.Component {
-    render() {
-        return (
-            <div className="row main-bar">
-                <input id="menu-toggle" type="checkbox"/>
-                <label className="menu-btn" htmlFor="menu-toggle">
-                    <span></span>
-                </label>
+class BurgerButtonOpen extends React.Component{
+    render(){
+        console.log("Rendering <BurgerButtonOpen>")
+        return(
+            <>
                 <ul className="menubox">
-                    <li key="home"><Link className="menu-item" to="/"><i className="fas fa-home"></i>home</Link></li>
-                    <li key="portfolio"><Link className="menu-item" to="/portfolio"><i
+                    <li onClick = {this.props.onClick} key="home"><Link className="menu-item" to="/"><i className="fas fa-home"></i>home</Link></li>
+                    <li onClick = {this.props.onClick} key="portfolio"><Link  className="menu-item" to="/portfolio"><i
                         className="fas fa-paint-brush"></i>portfolio</Link></li>
-                    <li key="contacts"><Link className="menu-item" to="/contacts"><i
+                    <li onClick = {this.props.onClick} key="contacts"><Link  className="menu-item" to="/contacts"><i
                         className="fas fa-address-card"></i>contacts</Link></li>
                 </ul>
+            </>
+        )
+    }
+}
+
+class MobileNavBar extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {burgerButtonOpen: false}
+    }
+    handleClick() {
+        this.setState(state => ({
+            burgerButtonOpen: !state.burgerButtonOpen
+        }));
+    }
+    render() {
+        let navBar;
+        if (this.state.burgerButtonOpen) {
+            navBar = <BurgerButtonOpen onClick={this.handleClick.bind(this)}/>;
+        }
+        console.log("Rendering <MobileNavBar> with state:", this.state)
+        return (
+            <div className="row main-bar">
+                <input id="menu-toggle" type="checkbox" checked={this.state.burgerButtonOpen} onChange={() => {}}/>
+                <label id="menu-btn" onClick = {this.handleClick.bind(this)} className="menu-btn" htmlFor="menu-toggle" >
+                    <span></span>
+                </label>
+                {navBar}
             </div>
         )
     }

@@ -106,7 +106,7 @@ picture.pic {
         top: 0;
         transform: rotate(90deg);
     }
-    #menu-toggle:checked ~ .menubox{
+    #menu-toggle ~ .menubox{
         visibility: visible;
         left: 0;
     }
@@ -198,9 +198,7 @@ picture.pic {
         padding: 0;
         font-size: 0.5em;
     }
-    .menubox {
-        width: 70vw;
-    }
+
     .menu-item {
         font-size: 1.2em;
         padding: 0.3em;
@@ -228,9 +226,6 @@ picture.pic {
 }
 
 @media (max-width: 100px){
-    .menubox {
-        width: 100vw;
-    }
     .about {
         font-size: 0.3em;
         font-weight: lighter;
