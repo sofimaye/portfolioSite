@@ -1,7 +1,7 @@
 // 1-st page
 import React from "react";
-export class MainPage extends React.Component {
-    render() {
+
+export default function MainPage(){
         return (
             <div className="row content-bar">
                 <picture className="col pic">
@@ -14,5 +14,4 @@ export class MainPage extends React.Component {
                 </picture>
             </div>
         )
-    }
 }

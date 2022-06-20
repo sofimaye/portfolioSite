@@ -1,7 +1,7 @@
 //3-rd page
 import React from "react";
-export class Contacts extends React.Component {
-    render() {
+
+export default function Contacts(){
         return (
             <div>
                 <ul className="col-12 contacts">
@@ -17,5 +17,4 @@ export class Contacts extends React.Component {
                 </div>
             </div>
         )
-    }
 }

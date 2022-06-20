@@ -1,5 +1,5 @@
 // 2-nd page
-import React, {Component} from 'react';
+import React from 'react';
 import 'photoswipe/dist/photoswipe.css'
 import { Gallery, Item } from 'react-photoswipe-gallery'
 
@@ -10,8 +10,7 @@ const images = ["images/IMGnewsize.jpg","images/IMGnewsize1.JPG","images/IMGnews
     "images/IMGnewsize11.jpg", "images/IMGnewsize12.jpg", "images/IMGnewsize13.jpg",
     "images/IMGnewsize14.jpg", "images/IMGnewsize15.jpg"]
 
-export class Portfolio extends Component {
-    render() {
+export default function Portfolio(){
         return(
             <div id="grid" className="grid">
                 <Gallery>
@@ -27,5 +26,4 @@ export class Portfolio extends Component {
                 </Gallery>
             </div>
         )
-    }
 }

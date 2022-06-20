@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import {Navbar} from "./components/navbar";
-import {MainPage} from "./components/mainPage";
-import {Portfolio} from "./components/portfolio";
-import {Contacts} from "./components/contacts";
+import Navbar from "./components/navbar";
+import MainPage from "./components/mainPage";
+import Portfolio from "./components/portfolio";
+import Contacts from "./components/contacts";
 import './css/main.css';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
