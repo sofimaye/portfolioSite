@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useLayoutEffect} from 'react';
 import {Link} from "react-router-dom";
 
 // to do state for the button component (mobileNavBar)
@@ -51,7 +51,7 @@ function MobileNavBar() {
     if (burgerButtonOpen) {
         navBar = <BurgerButtonOpen onClick={() => setBurgerButtonOpen(!burgerButtonOpen)}/>;
     }
-    console.log("Rendering <MobileNavBar> with state:", burgerButtonOpen)
+    console.log("Rendering <MobileNavBar> with burgerButtonOpen:", burgerButtonOpen)
     return (
         <div className="row main-bar">
             <input id="menu-toggle" type="checkbox" checked={burgerButtonOpen} onChange={() => {
@@ -65,19 +65,14 @@ function MobileNavBar() {
     )
 }
 
+// used useEffect hook to prevent redundant eventListeners creating
+const isMobileBar = () => window.innerWidth < 801;
 export default function Navbar() {
-    //returns 'true' only if window.innerWidth < 801
-    const isMobileBar = () => window.innerWidth < 801;
-    let [mobileBar, setMobileBar] = useState(isMobileBar())
-
-   useEffect( () => {window.addEventListener('resize', () => {
-        console.log(`Recalculating mobile nav bar for window: ${window.innerWidth} - ${isMobileBar()}, old: ${mobileBar}`)
-        // 'true' if mobile nav bar or false if not
-        setMobileBar(isMobileBar())
-    })
-   })
+    let [mobileBar, setMobileBar] = useState(isMobileBar());
     console.log(`Rendering nav bar for, mobile: ${mobileBar}`)
-
+    useEffect(() => {
+        window.addEventListener('resize', () => setMobileBar(isMobileBar()))
+    }, []);
     return (
         <>
             {mobileBar ? <MobileNavBar/> : <MainNavBar/>}
