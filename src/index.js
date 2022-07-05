@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import Navbar from "./components/navbar";
+import { Navbar } from "./components/navbar";
 import MainPage from "./components/mainPage";
 import Portfolio from "./components/portfolio";
 import Contacts from "./components/contacts";
@@ -10,7 +10,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <React.StrictMode>
+    // <React.StrictMode>
         <BrowserRouter>
             <Navbar/>
             <Routes>
@@ -19,7 +19,7 @@ root.render(
                 <Route path="contacts" element={<Contacts/>}/>
             </Routes>
         </BrowserRouter>
-    </React.StrictMode>
+     // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

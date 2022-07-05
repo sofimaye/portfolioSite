@@ -1,6 +1,6 @@
 // 2-nd page
 import React from 'react';
-import 'photoswipe/dist/photoswipe.css'
+import 'photoswipe/dist/photoswipe.css';
 import { Gallery, Item } from 'react-photoswipe-gallery'
 
 const images = ["images/IMGnewsize.jpg","images/IMGnewsize1.JPG","images/IMGnewsize16.jpg",
@@ -14,15 +14,16 @@ export default function Portfolio(){
         return(
             <div id="grid" className="grid">
                 <Gallery>
-                {images.map((image, i) => (
-                    <div id="grid-item" key={i} className="grid-item">
-                    <Item width="724" height="1024" original={image} thumbnail={image} key={i}>
-                    {({ ref, open }) => (
-                        <img alt="image" ref={ref} onClick={open} src={image} />
-                    )}
-                    </Item>
-                    </div>)
-                )}
+                    {images.map((image, i) => (
+                        <div id="grid-item" key={i} className="grid-item">
+                            <Item width="724" height="1024" original={image} thumbnail={image} key={i}>
+                                {({ref, open}) => (
+                                    <img alt="image" ref={ref} onClick={open} src={image}/>
+                                )}
+                            </Item>
+                        </div>)
+                    )
+                    }
                 </Gallery>
             </div>
         )

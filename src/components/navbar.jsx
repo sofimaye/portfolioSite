@@ -1,10 +1,9 @@
-import React, {useState, useEffect, useLayoutEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from "react-router-dom";
 
-// to do state for the button component (mobileNavBar)
-function MainNavBar() {
+export function MainNavBar() {
     return (
-        <div className="row navigation-bar">
+        <div className="row navigation-bar" data-testid={"main-nav-bar"}>
             <div className="col menu">
                 <Link to="/">
                     <ul>
@@ -45,7 +44,7 @@ function BurgerButtonOpen(props) {
     )
 }
 
-function MobileNavBar() {
+export function MobileNavBar() {
     let [burgerButtonOpen, setBurgerButtonOpen] = useState(false)
     let navBar;
     if (burgerButtonOpen) {
@@ -53,10 +52,10 @@ function MobileNavBar() {
     }
     console.log("Rendering <MobileNavBar> with burgerButtonOpen:", burgerButtonOpen)
     return (
-        <div className="row main-bar">
+        <div className="row main-bar" data-testid={"mobile-nav-bar"}>
             <input id="menu-toggle" type="checkbox" checked={burgerButtonOpen} onChange={() => {
             }}/>
-            <label id="menu-btn" onClick={() => setBurgerButtonOpen(!burgerButtonOpen)} className="menu-btn"
+            <label id="menu-btn" data-testid={"mobile-nav-bar-label"} onClick={() => setBurgerButtonOpen(!burgerButtonOpen)} className="menu-btn"
                    htmlFor="menu-toggle">
                 <span></span>
             </label>
@@ -67,11 +66,16 @@ function MobileNavBar() {
 
 // used useEffect hook to prevent redundant eventListeners creating
 const isMobileBar = () => window.innerWidth < 801;
-export default function Navbar() {
+
+export function Navbar() {
     let [mobileBar, setMobileBar] = useState(isMobileBar());
     console.log(`Rendering nav bar for, mobile: ${mobileBar}`)
     useEffect(() => {
         window.addEventListener('resize', () => setMobileBar(isMobileBar()))
+        return () => {
+            console.log("Clean up <Navbar>")
+            window.removeEventListener('resize', () => setMobileBar(isMobileBar()));
+        }
     }, []);
     return (
         <>

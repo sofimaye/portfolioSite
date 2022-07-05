@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Contacts(){
         return (
-            <div>
+            <div id="contacts">
                 <ul className="col-12 contacts">
                     <a href="mailto:sofi.mann99@gmail.com" target="_blank" rel="noopener norefferer">
                         <li><i className="far fa-envelope"></i>sofi.mann99@gmail.com</li>
