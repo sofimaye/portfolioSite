@@ -1,4 +1,3 @@
-import React from "react";
 import '@testing-library/jest-dom';
 import {cleanup, fireEvent, render} from '@testing-library/react';
 import {MobileNavBar, Navbar} from "./navbar";

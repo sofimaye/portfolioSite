@@ -1,4 +1,3 @@
-import React from "react";
 import Contacts from "./contacts";
 import '@testing-library/jest-dom';
 import {render} from '@testing-library/react';
